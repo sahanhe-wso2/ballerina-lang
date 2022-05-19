@@ -126,7 +126,7 @@ task createCodeCoverageReport(type: JacocoReport) {
     }
 }
 
-task createSonarqubeReport {
+createSonarqubeReport {
   properties {
     property "sonar.projectKey", "sahanhe-test_ballerina-lang"
     property "sonar.organization", "sahanhe-test"
