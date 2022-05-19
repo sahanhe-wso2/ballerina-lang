@@ -126,7 +126,7 @@ task createCodeCoverageReport(type: JacocoReport) {
     }
 }
 
-createSonarqubeReport {
+sonarqube {
   properties {
     property "sonar.projectKey", "sahanhe-test_ballerina-lang"
     property "sonar.organization", "sahanhe-test"
@@ -136,7 +136,6 @@ createSonarqubeReport {
 
 copyBallerinaClassFiles.dependsOn copyExecFilesAndJavaClassFiles 
 createCodeCoverageReport.dependsOn copyBallerinaClassFiles 
-createSonarqubeReport.dependsOn copyBallerinaClassFiles
 
 
 
