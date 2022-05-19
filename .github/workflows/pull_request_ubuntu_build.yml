@@ -11,9 +11,6 @@ on:
       - stage-swan-lake
       - 2201.[0-9]+.x
 
-permissions:
-  pull-requests: read
-
 jobs:
   ubuntu_build:
     name: Build with all tests on Ubuntu
@@ -67,13 +64,10 @@ jobs:
         with:
           files: ./.jacoco/reports/jacoco/report.xml
 
-      - name: Analyze with SonarCloud         
-        uses: SonarSource/sonarcloud-github-action@de2e56b42aa84d0b1c5b622644ac17e505c9a049
+      - name: Generate Sonarcloud report
+        if:  github.event_name == 'pull_request'
+        run: ./gradlew check sonarqube --info
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}   # Generate a token on Sonarcloud.io, add it to the secrets of this repo with the name SONAR_TOKEN (Settings > Secrets > Actions > add new repository secret)
-        with:
-          args:             
-            -Dsonar.projectKey=sahanhe-test_ballerina-lang
-            -Dsonar.organization=sahanhe-test
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
