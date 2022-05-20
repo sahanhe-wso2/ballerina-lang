@@ -51,8 +51,12 @@ jobs:
         run: |
           export DISPLAY=':99.0'
           /usr/bin/Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
-          ./gradlew build -x test --max-workers=2 --scan --no-daemon 
+          ./gradlew build sonarqube --info -x test --max-workers=2 --scan --no-daemon 
           find ~/.gradle/caches/ -name "*.lock" -type f -delete
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
 
       - name: Generate Jacoco report
         if:  github.event_name == 'pull_request'
@@ -63,11 +67,4 @@ jobs:
         uses: codecov/codecov-action@v1
         with:
           files: ./.jacoco/reports/jacoco/report.xml
-
-      - name: Generate Sonarcloud report
-        if:  github.event_name == 'pull_request'
-        run: ./gradlew check sonarqube --info
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
