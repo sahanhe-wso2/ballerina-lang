@@ -73,7 +73,7 @@ include(':metrics-extensions:ballerina-metrics-extension')
 include(':metrics-extensions')
 include(':toml-parser')
 include(':composer-library')
-include(':ballerina-stringutils')
+//include(':ballerina-stringutils')
 include(':ballerina') /// mind of this
 include(':jballerina')
 include(':jballerina-tools')
