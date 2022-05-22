@@ -202,7 +202,7 @@ dependencies {
     distributionBala project(path: ':ballerina-lang:stream', configuration: 'distributionBala')
     distributionBala project(path: ':ballerina-lang:string', configuration: 'distributionBala')
     distributionBala project(path: ':ballerina-lang:table', configuration: 'distributionBala')
-    distributionBala project(path: ':ballerina-langlib:test', configuration: 'distributionBala')
+    //distributionBala project(path: ':ballerina-langlib:test', configuration: 'distributionBala')
     distributionBala project(path: ':ballerina-lang:transaction', configuration: 'distributionBala')
     distributionBala project(path: ':ballerina-lang:typedesc', configuration: 'distributionBala')
     distributionBala project(path: ':ballerina-lang:value', configuration: 'distributionBala')
