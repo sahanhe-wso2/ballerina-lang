@@ -59,7 +59,7 @@ include(':ballerina-shell:shell-cli')
 include(':ballerina-shell')
 include(':docerina-gradle-plugin')
 include(':docerina')
-include(':ballerina-formatter')
+// include(':ballerina-formatter')
 include(':ballerinalang-data-mapper')
 //include ':ballerina-config-schema-builder'
 include(':testerina:testerina-core')
