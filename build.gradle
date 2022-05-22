@@ -132,7 +132,6 @@ sonarqube {
     property "sonar.projectKey", "sahanhe-test_ballerina-lang"
     property "sonar.organization", "sahanhe-test"
     property "sonar.host.url", "https://sonarcloud.io"
-    property("sonar.coverage.jacoco.xmlReportPaths", "$rootDir/reports/jacoco/test/jacoco.xml")
   }
 }
 
