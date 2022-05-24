@@ -32,13 +32,6 @@ jobs:
 
       - name: Initialize sub-modules
         run: git submodule update --init
-        
-      - name: Cache SonarCloud packages
-        uses: actions/cache@v1
-        with:
-          path: ~/.sonar/cache
-          key: ${{ runner.os }}-sonar
-          restore-keys: ${{ runner.os }}-sonar
           
       - name: Cache Gradle packages
         uses: actions/cache@v2
@@ -48,13 +41,10 @@ jobs:
           restore-keys: ${{ runner.os }}-gradle
 
       - name: Build with Gradle
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
           export DISPLAY=':99.0'
           /usr/bin/Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
-          ./gradlew build sonarqube --info -x test --max-workers=2 --scan --no-daemon 
+          ./gradlew build -x test --max-workers=2 --scan --no-daemon 
           find ~/.gradle/caches/ -name "*.lock" -type f -delete
 
       - name: Generate Jacoco report
