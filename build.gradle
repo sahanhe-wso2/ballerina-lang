@@ -126,6 +126,7 @@ task createCodeCoverageReport(type: JacocoReport) {
     }
 }
 
+
 sonarqube {
   properties {
     property "sonar.sourceEncoding", "UTF-8"
