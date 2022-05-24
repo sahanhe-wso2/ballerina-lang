@@ -74,7 +74,7 @@ jobs:
         run: |
           export DISPLAY=':99.0'
           /usr/bin/Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
-          ./gradlew build sonarqube -x test -x check --max-workers=2 --scan --no-daemon --stacktrace
+          ./gradlew build sonarqube --info --max-workers=2 --scan --no-daemon --stacktrace
           find ~/.gradle/caches/ -name "*.lock" -type f -delete
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
