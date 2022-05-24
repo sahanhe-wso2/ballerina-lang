@@ -50,6 +50,10 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ github.sha }}
           restore-keys: ${{ runner.os }}-gradle
 
+      - name: Create missing module folders
+        run: |
+          mkdir -p /home/runner/work/ballerina-lang/ballerina-lang/ballerina-formatter
+
       - name: Build with Gradle
         run: |
           export DISPLAY=':99.0'
