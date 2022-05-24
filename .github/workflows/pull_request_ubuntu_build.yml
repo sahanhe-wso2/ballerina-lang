@@ -52,7 +52,23 @@ jobs:
 
       - name: Create missing module folders
         run: |
-          mkdir -p /home/runner/work/ballerina-lang/ballerina-lang/ballerina-formatter
+          mkdir -p /home/runner/work/ballerina-lang/ballerina-lang/ballerina-formatter 
+          mkdir -p /home/runner/work/ballerina-lang/ballerina-lang/ballerina
+          mkdir -p /home/runner/work/ballerina-lang/ballerina-lang/ballerina-langlib
+          mkdir -p /home/runner/work/ballerina-lang/ballerina-lang/compiler-plugins
+          mkdir -p /home/runner/work/ballerina-lang/ballerina-lang/composer
+          mkdir -p /home/runner/work/ballerina-lang/ballerina-lang/debug-adapter
+          mkdir -p /home/runner/work/ballerina-lang/ballerina-lang/distribution/zip/nballerina-tools
+          mkdir -p /home/runner/work/ballerina-lang/ballerina-lang/formatter 
+          mkdir -p /home/runner/work/ballerina-lang/ballerina-lang/ls-extensions
+          mkdir -p /home/runner/work/ballerina-lang/ballerina-lang/project-api-test-artifact
+          mkdir -p /home/runner/work/ballerina-lang/ballerina-lang/language-server/modules/test-coverage
+          mkdir -p /home/runner/work/ballerina-lang/ballerina-lang/misc/testerina/modules/report-tools
+          mkdir -p /home/runner/work/ballerina-lang/ballerina-lang/misc/ballerina-config-schema-builder
+          mkdir -p /home/runner/work/ballerina-lang/ballerina-lang/ballerina-stringutils
+          
+
+
 
       - name: Build with Gradle
         run: |
