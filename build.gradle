@@ -8,7 +8,9 @@ plugins {
     id 'net.researchgate.release' version '2.6.0'
     id 'jacoco'
     id "org.sonarqube" version "3.3"
+
 }
+
 
 apply from: "$rootDir/gradle/repositories.gradle"
 
@@ -137,4 +139,6 @@ sonarqube {
 
 copyBallerinaClassFiles.dependsOn copyExecFilesAndJavaClassFiles 
 createCodeCoverageReport.dependsOn copyBallerinaClassFiles 
+
+
 
