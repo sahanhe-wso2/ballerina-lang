@@ -127,6 +127,9 @@ jobs:
           find ~/.gradle/caches/ -name "*.lock" -type f -delete
           gradle test jacocoTestReport sonarqube
           
+      - name: import jacoco report
+        run: gradle test jacocoTestReport sonarqube
+        
       - name: Print log message  
         env: 
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

@@ -134,6 +134,12 @@ sonarqube {
   }
 }
 
+jacocoTestReport {
+    reports {
+        xml.enabled true
+    }
+}
+
 copyBallerinaClassFiles.dependsOn copyExecFilesAndJavaClassFiles 
 createCodeCoverageReport.dependsOn copyBallerinaClassFiles 
 
